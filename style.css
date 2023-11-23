@@ -3,20 +3,8 @@ a
 {
     text-decoration: none;
 }
-form
-{
-    display: flex;
-    flex-direction: column;
-}
-h1
-{
-    margin: 0;
-}
-button
-{
-    margin-top: 10px;
-}
-/*==================================================*/
+/*--------------------------------------------------*/
+/*Стилизация для header*/
 header
 {
     display: flex;
@@ -39,6 +27,21 @@ header
     color: brown;
 }
 /*==================================================*/
+form
+{
+    display: flex;
+    flex-direction: column;
+}
+h1
+{
+    margin: 0;
+}
+button
+{
+    margin-top: 10px;
+}
+/*--------------------------------------------------*/
+/*Стилизация для формы регистрации*/
 #formRegister
 {
     position: fixed;
@@ -51,7 +54,8 @@ header
     background-color: lightgray;
     padding: 10px;
 }
-/*==================================================*/
+/*--------------------------------------------------*/
+/*Стилизация для формы входа*/
 #formEnter
 {
     position: fixed;
@@ -65,9 +69,7 @@ header
     padding: 10px;
 }
 /*==================================================*/
-table{
-    margin: 0 auto;
-}
+/*Стилизация для карточек*/
 .cards{
     display: inline-block;
     width: 250px;

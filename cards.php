@@ -13,35 +13,17 @@
         die("Ошибка подключения: " . mysqli_connect_error());
     }
 
-$sql = "SELECT * FROM dictionary"; // SQL запрос
+    $sql = "SELECT * FROM dictionary"; // SQL запрос
     $result = mysqli_query($conn, $sql); // выполнение запроса
+    $data = array(); // Создаем пустой массив для хранения данных
 
     if (mysqli_num_rows($result) > 0) 
     {
-        // выводим данные из каждой строки
-        while($row = mysqli_fetch_assoc($result)) 
+        while($row = mysqli_fetch_assoc($result)) // выводим данные из каждой строки
         {
-            echo '
-                <td class="cards">
-                    <div class="picture">
-                        <img src="' . htmlspecialchars($row["linkToPicture"]) . '" alt="' . htmlspecialchars($row["wordsInTheTargetLanguage"]) . '">
-                    </div>
-                    <div class="buttons">
-                        <div class="button-add">
-                            <img src="Pictures/button-add.svg" alt="add">
-                        </div>
-                        <div class="button-sound">
-                            <img src="Pictures/button-sound.svg" alt="sound">
-                        </div>
-                    </div>
-                    <div class="word">
-                        ' . htmlspecialchars($row["wordsInTheTargetLanguage"]) . '
-                    </div>
-                    <div class="translate">
-                        ' . htmlspecialchars($row["wordsInNativeLanguage"]) . '
-                    </div>
-                </td>
-            ';
+            $data[] = $row; // Добавляем каждую строку данных в массив
         }
     }
+    $jsonData = json_encode($data); // Преобразуем массив в формат JSON
+    echo $jsonData; // Отправляем JSON-данные в JavaScript
 ?>

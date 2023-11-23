@@ -71,10 +71,7 @@
             </a>
         </form>
     </div>
-    <table>
-        <tr id="Cards">
-
-        </tr>
+    <div id="Cards">
     </div>
     <?php
         if($_SESSION['Email'] && $_SESSION['Password'])
