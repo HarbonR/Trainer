@@ -1,0 +1,128 @@
+/*==================================================*/
+a
+{
+    text-decoration: none;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+}
+h1
+{
+    margin: 0;
+}
+button
+{
+    margin-top: 10px;
+}
+/*==================================================*/
+header
+{
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    border-bottom: 3px double black;
+    margin: 0 auto;
+    font-size: 40px;
+}
+#header__cards:hover
+{
+    color: brown;
+}
+#header__trains:hover
+{
+    color: brown;
+}
+#header__loginRegistration:hover
+{
+    color: brown;
+}
+/*==================================================*/
+#formRegister
+{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    padding: 10px;
+}
+/*==================================================*/
+#formEnter
+{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    padding: 10px;
+}
+/*==================================================*/
+table{
+    margin: 0 auto;
+}
+.cards{
+    display: inline-block;
+    width: 250px;
+    height: 192px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    border-radius: 20px;
+}
+.cards .picture{
+    display: inline-block;
+    margin: 10% 5% 5% 30%;
+    width: 100px;
+    height: 100px;
+}
+.picture img{
+    border-radius: 20px;
+    width: 100%;
+}
+.buttons{
+    display: inline-block;
+    height: 100px;
+}
+.button-add{
+    border: 1px solid #40514E;
+    border-radius: 20%;
+    width: 33px;
+    height: 33px;
+    margin: 10px 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+}
+.button-add:hover{
+    background-color: rgba(17, 153, 158, 50%);
+}
+.button-add img{
+    display: block;
+    margin: 20% auto;
+}
+.button-sound{
+    border: 1px solid #40514E;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+}
+.button-sound:hover{
+    background-color: rgba(17, 153, 158, 50%);
+}
+.button-sound img{
+    display: block;
+    margin: 30% auto;
+}
+.word{
+    text-align: center;
+}
+.translate{
+    margin-top: 2%;
+    text-align: center;
+}
+/*==================================================*/
