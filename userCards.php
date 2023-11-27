@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $servername = "localhost"; // имя сервера БД
     $username = "root"; // имя пользователя БД
     $password = ""; // пароль пользователя БД
@@ -12,8 +13,18 @@
     {
         die("Ошибка подключения: " . mysqli_connect_error());
     }
-
-    $sql = "SELECT Picture, Eng, Rus FROM cardEngRus"; // SQL запрос
+    $name = $_SESSION['Name'];
+    $sql = "
+        SELECT
+            cardEngRus.Picture
+            ,cardEngRus.Eng
+            ,cardEngRus.Rus
+        FROM
+            userCardEngRus
+        JOIN user ON userCardEngRus.idUser = user.Id
+        JOIN cardEngRus ON userCardEngRus.idCardEngRus = cardEngRus.id
+        WHERE
+            user.Name = '$name'"; // SQL запрос
     $result = mysqli_query($conn, $sql); // выполнение запроса
     $data = array(); // Создаем пустой массив для хранения данных
 

@@ -133,3 +133,11 @@ button
     background-color: aqua;
     border-radius: 10px;
 }
+#user__data
+{
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-around;
+    font-size: 16pt;
+}

@@ -4,23 +4,56 @@ let header = document.getElementById("header");
 let tabs = header.getElementsByClassName("enteredTab");
 let header__cards = document.getElementById("header__cards");
 let header__trains = document.getElementById("header__trains");
+let user = document.getElementById("user");
+let user__data = document.getElementById("user__data");
 //--------------------------------------------------
-header__cards.onclick = function()
+window.addEventListener('load', function()
+{
+    header__cards.click();
+});
+//--------------------------------------------------
+header__cards.onclick = function() // Выбираем вкладку карточки
 {
     for (let i = 0; i < tabs.length; i++)
     {
         tabs[i].classList.remove("enteredTab");
     }
+    user__data.style.display = "none";
     header__cards.classList.add("enteredTab");
+    getCards("cards.php");
 };
 //--------------------------------------------------
-header__trains.onclick = function()
+header__trains.onclick = function() // Выбираем вкладку тренировка
 {
     for (let i = 0; i < tabs.length; i++)
     {
         tabs[i].classList.remove("enteredTab");
     }
+    user__data.style.display = "none";
     header__trains.className = "enteredTab";
+}
+//--------------------------------------------------
+user.onclick = function() // Выбираем вкладку пользователь
+{
+    for (let i = 0; i < tabs.length; i++)
+    {
+        tabs[i].classList.remove("enteredTab");
+    }
+    user__data.removeAttribute("style");
+    user.className = "enteredTab";
+    getCards("userCards.php");
+}
+//==================================================
+let exit = document.getElementById("exit");
+exit.onclick = function()
+{
+    header__loginRegistration.removeAttribute("style");
+    user.style.display = "none";
+    user__data.style.display = "none";
+    header__cards.click();
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'exit.php', false); // Установите параметр async в false
+    xhr.send();
 }
 //==================================================
 // Создаём переменные для блока кода
@@ -177,39 +210,41 @@ function createCard(linkToPicture, wordsInTheTargetLanguage, wordsInNativeLangua
     return card;
   }
 //--------------------------------------------------
-// Полученние данных о карточках
-let cardsContainer = document.getElementById("Cards"); // Получаем элемент с ID "Cards"
-let xhrCards = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
-//--------------------------------------------------
-xhrCards.onreadystatechange = function() // Устанавливаем функцию, которая будет вызываться при изменении состояния объекта `xhr`
+function getCards(path)
 {
-    if (xhrCards.readyState === 4 && xhrCards.status === 200) // Проверяем, что запрос завершен и успешен
+    // Полученние данных о карточках
+    let cardsContainer = document.getElementById("Cards"); // Получаем элемент с ID "Cards"
+    let xhrCards = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
+    //--------------------------------------------------
+    xhrCards.onreadystatechange = function() // Устанавливаем функцию, которая будет вызываться при изменении состояния объекта `xhr`
     {
-        let jsonData = JSON.parse(xhrCards.responseText); // Разбираем JSON-данные
-        
-        cardsContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых карточек
-
-        // Создаем карточки и добавляем их в контейнер
-        for (let i = 0; i < jsonData.length; i++)
+        if (xhrCards.readyState === 4 && xhrCards.status === 200) // Проверяем, что запрос завершен и успешен
         {
-            let cardData = jsonData[i];
-            let card = createCard(cardData.linkToPicture, cardData.wordsInTheTargetLanguage, cardData.wordsInNativeLanguage);
-            cardsContainer.appendChild(card);
+            let jsonData = JSON.parse(xhrCards.responseText); // Разбираем JSON-данные
+
+            cardsContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых карточек
+
+            // Создаем карточки и добавляем их в контейнер
+            for (let i = 0; i < jsonData.length; i++)
+            {
+                let cardData = jsonData[i];
+                let card = createCard(cardData.linkToPicture, cardData.wordsInTheTargetLanguage, cardData.wordsInNativeLanguage);
+                cardsContainer.appendChild(card);
+            }
         }
-    }
-};
-xhrCards.open("POST", "cards.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
-xhrCards.send(); // Отправляем запрос на сервер
-//--------------------------------------------------
-// Стилизуем контейнер
-cardsContainer.style.maxWidth = "1200px";
-cardsContainer.style.margin = "0 auto";
-cardsContainer.style.display = "flex";
-cardsContainer.style.justifyContent = "space-around";
-cardsContainer.style.flexWrap = "wrap";
+    };
+    xhrCards.open("POST", path); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
+    xhrCards.send(); // Отправляем запрос на сервер
+    //--------------------------------------------------
+    // Стилизуем контейнер
+    cardsContainer.style.maxWidth = "1200px";
+    cardsContainer.style.margin = "0 auto";
+    cardsContainer.style.display = "flex";
+    cardsContainer.style.justifyContent = "space-around";
+    cardsContainer.style.flexWrap = "wrap";
+}
 //==================================================
 // Функция для отправки данных о пользователе
-let user = document.getElementById("user");
 let xhrData = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
 xhrData.onreadystatechange = function() // Устанавливаем функцию, которая будет вызываться при изменении состояния объекта `xhr`
 {
@@ -226,13 +261,4 @@ xhrData.onreadystatechange = function() // Устанавливаем функц
 };
 xhrData.open("POST", "registrationDate.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
 xhrData.send(); // Отправляем запрос на сервер
-//==================================================
-user.onclick = function()
-{
-    for (let i = 0; i < tabs.length; i++)
-    {
-        tabs[i].classList.remove("enteredTab");
-    }
-    user.className = "enteredTab";
-}
 //==================================================

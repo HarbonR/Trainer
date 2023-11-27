@@ -73,6 +73,20 @@
             </a>
         </form>
     </div>
+    <div id="user__data" style="display: none;">
+        <a href="#" id="myDictionary" class="enteredTab">
+            Мой словарь
+        </a>
+        <a href="#" id="myAchievements">
+            Мои достижения
+        </a>
+        <a href="#">
+            Статистика
+        </a>
+        <a href="#" id="exit">
+            Выход
+        </a>
+    </div>
     <div id="Cards">
     </div>
     <script src="javaScript.js"></script>
