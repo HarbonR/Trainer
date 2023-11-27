@@ -18,7 +18,7 @@
                 Искать
             </button>
         </div>
-        <a href="#" id="header__cards">
+        <a href="#" id="header__cards" class="enteredTab">
             Карточки
         </a>
         <a href="#" id="header__trains">
@@ -26,6 +26,8 @@
         </a>
         <a href="#" id="header__loginRegistration">
             Вход / Регистрация
+        </a>
+        <a href="#" id="user" >
         </a>
     </header>
     <div id="formRegister">
@@ -73,13 +75,6 @@
     </div>
     <div id="Cards">
     </div>
-    <?php
-        if($_SESSION['Email'] && $_SESSION['Password'])
-        {
-            echo '<script>' . 'document.getElementById("header__loginRegistration").textContent = "' . $_SESSION['Name'] . '" </script>';
-            echo '<script>' . 'document.getElementById("header__loginRegistration").id = "' . $_SESSION['Name'] . '" </script>';
-        }
-    ?>
     <script src="javaScript.js"></script>
 </body>
-</html> 
+</html>

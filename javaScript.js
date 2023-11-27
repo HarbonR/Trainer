@@ -1,13 +1,37 @@
 //==================================================
+// Функционал для переключения вкладок
+let header = document.getElementById("header");
+let tabs = header.getElementsByClassName("enteredTab");
+let header__cards = document.getElementById("header__cards");
+let header__trains = document.getElementById("header__trains");
+//--------------------------------------------------
+header__cards.onclick = function()
+{
+    for (let i = 0; i < tabs.length; i++)
+    {
+        tabs[i].classList.remove("enteredTab");
+    }
+    header__cards.classList.add("enteredTab");
+};
+//--------------------------------------------------
+header__trains.onclick = function()
+{
+    for (let i = 0; i < tabs.length; i++)
+    {
+        tabs[i].classList.remove("enteredTab");
+    }
+    header__trains.className = "enteredTab";
+}
+//==================================================
 // Создаём переменные для блока кода
-let loginRegistration = document.getElementById('header__loginRegistration'); // Создаём переменную на ссылку вход / регистрация
+let header__loginRegistration = document.getElementById('header__loginRegistration'); // Создаём переменную на ссылку вход / регистрация
 let formRegister = document.getElementById('formRegister'); // Создаём переменную на div форма регистрации
 let formEnter = document.getElementById('formEnter'); // Создаём переменную на div форма входа
 //--------------------------------------------------
 // Функция для кнопки вход / регистрация
-if(loginRegistration) // Проверка пуста ли переменная
+if(header__loginRegistration) // Проверка пуста ли переменная
 {
-    loginRegistration.onclick = function()
+    header__loginRegistration.onclick = function()
     {
         document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Меняем цвет заднего фона окна на серый
         formEnter.style.display = "flex"; // Делаем видимым форму входа
@@ -26,8 +50,8 @@ createAccount.onclick = function()
 // Добавляем слушателя на документ
 document.addEventListener('click', function(event)
 {
-    if (!formEnter.contains(event.target) && event.target !== loginRegistration 
-    && !formRegister.contains(event.target) && event.target !== loginRegistration) // Проверяем если нажимаем куда-то не на форму регистрации и входа
+    if (!formEnter.contains(event.target) && event.target !== header__loginRegistration 
+    && !formRegister.contains(event.target) && event.target !== header__loginRegistration) // Проверяем если нажимаем куда-то не на форму регистрации и входа
     {
         document.body.style.backgroundColor = ""; // Меняем цвет заднего фона окна на стандарный
         formEnter.style.display = "none"; // Делаем не видимой форму входа
@@ -153,15 +177,15 @@ function createCard(linkToPicture, wordsInTheTargetLanguage, wordsInNativeLangua
     return card;
   }
 //--------------------------------------------------
-// Полученние данных с php файла на сервере асинхронным способом
+// Полученние данных о карточках
 let cardsContainer = document.getElementById("Cards"); // Получаем элемент с ID "Cards"
-let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
+let xhrCards = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
 //--------------------------------------------------
-xhr.onreadystatechange = function() // Устанавливаем функцию, которая будет вызываться при изменении состояния объекта `xhr`
+xhrCards.onreadystatechange = function() // Устанавливаем функцию, которая будет вызываться при изменении состояния объекта `xhr`
 {
-    if (xhr.readyState === 4 && xhr.status === 200) // Проверяем, что запрос завершен и успешен
+    if (xhrCards.readyState === 4 && xhrCards.status === 200) // Проверяем, что запрос завершен и успешен
     {
-        let jsonData = JSON.parse(xhr.responseText); // Разбираем JSON-данные
+        let jsonData = JSON.parse(xhrCards.responseText); // Разбираем JSON-данные
         
         cardsContainer.innerHTML = ""; // Очищаем контейнер перед добавлением новых карточек
 
@@ -174,8 +198,8 @@ xhr.onreadystatechange = function() // Устанавливаем функцию
         }
     }
 };
-xhr.open("POST", "cards.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
-xhr.send(); // Отправляем запрос на сервер
+xhrCards.open("POST", "cards.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
+xhrCards.send(); // Отправляем запрос на сервер
 //--------------------------------------------------
 // Стилизуем контейнер
 cardsContainer.style.maxWidth = "1200px";
@@ -183,4 +207,32 @@ cardsContainer.style.margin = "0 auto";
 cardsContainer.style.display = "flex";
 cardsContainer.style.justifyContent = "space-around";
 cardsContainer.style.flexWrap = "wrap";
+//==================================================
+// Функция для отправки данных о пользователе
+let user = document.getElementById("user");
+let xhrData = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
+xhrData.onreadystatechange = function() // Устанавливаем функцию, которая будет вызываться при изменении состояния объекта `xhr`
+{
+    if (xhrData.readyState === 4 && xhrData.status === 200) // Проверяем, что запрос завершен и успешен
+    {
+        if (xhrData.responseText)
+        {
+            let userData = JSON.parse(xhrData.responseText);
+            user.style.display = "";
+            user.textContent = userData[0];
+            header__loginRegistration.style.display = "none";
+        }
+    }
+};
+xhrData.open("POST", "registrationDate.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
+xhrData.send(); // Отправляем запрос на сервер
+//==================================================
+user.onclick = function()
+{
+    for (let i = 0; i < tabs.length; i++)
+    {
+        tabs[i].classList.remove("enteredTab");
+    }
+    user.className = "enteredTab";
+}
 //==================================================

@@ -128,3 +128,8 @@ button
     text-align: center;
 }
 /*==================================================*/
+.enteredTab
+{
+    background-color: aqua;
+    border-radius: 10px;
+}
