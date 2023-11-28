@@ -13,7 +13,7 @@
         die("Ошибка подключения: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT Picture, Eng, Rus FROM cardEngRus"; // SQL запрос
+    $sql = "SELECT id, Picture, Eng, Rus FROM cardEngRus"; // SQL запрос
     $result = mysqli_query($conn, $sql); // выполнение запроса
     $data = array(); // Создаем пустой массив для хранения данных
 
@@ -22,6 +22,7 @@
         while($row = mysqli_fetch_assoc($result)) // выводим данные из каждой строки
         {
             $data[] = array(
+                'id' => $row['id'],
                 'linkToPicture' => $row['Picture'],
                 'wordsInTheTargetLanguage' => $row['Eng'],
                 'wordsInNativeLanguage' => $row['Rus']);

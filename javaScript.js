@@ -162,11 +162,12 @@ function validateFormForEnter()
 }
 //==================================================
 // Создаем функцию для создания карточки
-function createCard(linkToPicture, wordsInTheTargetLanguage, wordsInNativeLanguage)
+function createCard(id, linkToPicture, wordsInTheTargetLanguage, wordsInNativeLanguage)
 {
     // Создаем элементы для карточки
     let card = document.createElement("div");
     card.className = "cards";
+    card.id = "card: " + id;
   
     let picture = document.createElement("div");
     picture.className = "picture";
@@ -179,6 +180,10 @@ function createCard(linkToPicture, wordsInTheTargetLanguage, wordsInNativeLangua
     buttons.className = "buttons";
     let buttonAdd = document.createElement("div");
     buttonAdd.className = "button-add";
+    buttonAdd.onclick = function()
+    {
+        
+    }
     let imgAdd = document.createElement("img");
     imgAdd.src = "Pictures/button-add.svg";
     imgAdd.alt = "add";
@@ -228,7 +233,7 @@ function getCards(path)
             for (let i = 0; i < jsonData.length; i++)
             {
                 let cardData = jsonData[i];
-                let card = createCard(cardData.linkToPicture, cardData.wordsInTheTargetLanguage, cardData.wordsInNativeLanguage);
+                let card = createCard(cardData.id, cardData.linkToPicture, cardData.wordsInTheTargetLanguage, cardData.wordsInNativeLanguage);
                 cardsContainer.appendChild(card);
             }
         }

@@ -22,7 +22,7 @@
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         // Подготовка и выполнение SQL-запроса
-        $sql = "INSERT INTO users (Name, Email, Password) VALUES ('$name', '$email', '$password')";
+        $sql = "INSERT INTO user (Name, Email, Password) VALUES ('$name', '$email', '$password')";
 
         if (mysqli_query($conn, $sql))
         {
