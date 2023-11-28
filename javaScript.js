@@ -44,6 +44,7 @@ user.onclick = function() // Выбираем вкладку пользоват�
     getCards("userCards.php");
 }
 //==================================================
+// Функция для обработки кнопки выход
 let exit = document.getElementById("exit");
 exit.onclick = function()
 {
@@ -51,8 +52,8 @@ exit.onclick = function()
     user.style.display = "none";
     user__data.style.display = "none";
     header__cards.click();
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'exit.php', false); // Установите параметр async в false
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'exit.php', false); // Установлен параметр async в false
     xhr.send();
 }
 //==================================================
@@ -182,7 +183,11 @@ function createCard(id, linkToPicture, wordsInTheTargetLanguage, wordsInNativeLa
     buttonAdd.className = "button-add";
     buttonAdd.onclick = function()
     {
-        
+        var xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
+        xhr.open("POST", "addCard.php", true); 
+        // Отправляем запрос на сервер
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
+        xhr.send("data=" + encodeURIComponent(id));
     }
     let imgAdd = document.createElement("img");
     imgAdd.src = "Pictures/button-add.svg";

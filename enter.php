@@ -13,7 +13,7 @@
         $email  = mysqli_real_escape_string($Connect, $email); // Экранирование специальных символов в строке для использования в SQL-запросе
         $password  = mysqli_real_escape_string($Connect, $password); // То же самое для пароля
 
-        $sql = 'SELECT Name, Email, Password FROM user'; // SQL-запрос на выборку имени, емейла и пароля из таблицы пользователей
+        $sql = 'SELECT Id, Name, Email, Password FROM user'; // SQL-запрос на выборку имени, емейла и пароля из таблицы пользователей
         $result = mysqli_query($Connect, $sql); // Выполнение SQL-запроса
         if ($result) // Проверка на успешность выполнения запроса
         {
@@ -27,6 +27,7 @@
                     if(password_verify($password, $row['Password'])) // Проверка хеша пароля
                     {
                         $booleanPassword = true; // Пароль верифицирован
+                        $_SESSION['Id'] = $row['Id']; // Сохраняем id пользователя в сессии
                         $_SESSION['Name'] = $row['Name']; // Сохраняем имя в сессии
                     }
                 }
