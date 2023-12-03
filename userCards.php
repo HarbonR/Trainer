@@ -1,15 +1,12 @@
 <?php
     session_start();
-    $servername = "localhost"; // имя сервера БД
-    $username = "root"; // имя пользователя БД
-    $password = ""; // пароль пользователя БД
-    $dbname = "trainer"; // имя БД
+    require 'linkDB.php';
 
     // Создаем подключение
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    $Connect = mysqli_connect($serverName, $userName, $password, $dBName);
 
     // Проверяем подключение
-    if (!$conn)
+    if (!$Connect)
     {
         die("Ошибка подключения: " . mysqli_connect_error());
     }
@@ -25,7 +22,7 @@
         JOIN cardEngRus ON userCardEngRus.idCardEngRus = cardEngRus.id
         WHERE
             user.Name = '$name'"; // SQL запрос
-    $result = mysqli_query($conn, $sql); // выполнение запроса
+    $result = mysqli_query($Connect, $sql); // выполнение запроса
     $data = array(); // Создаем пустой массив для хранения данных
 
     if (mysqli_num_rows($result) > 0) 

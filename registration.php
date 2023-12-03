@@ -1,9 +1,10 @@
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
+        require 'linkDB.php';
 
         // Подключение к базе данных
-        $conn = mysqli_connect("localhost", "root", "", "trainer");
+        $conn = mysqli_connect($serverName, $userName, $password, $dBName);
 
         // Проверка соединения
         if (!$conn)

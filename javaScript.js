@@ -67,7 +67,7 @@ if(header__loginRegistration) // Проверка пуста ли перемен
 {
     header__loginRegistration.onclick = function()
     {
-        document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Меняем цвет заднего фона окна на серый
+        document.getElementById("modal-window").style.display = "flex";
         formEnter.style.display = "flex"; // Делаем видимым форму входа
     }
 }
@@ -87,9 +87,9 @@ document.addEventListener('click', function(event)
     if (!formEnter.contains(event.target) && event.target !== header__loginRegistration 
     && !formRegister.contains(event.target) && event.target !== header__loginRegistration) // Проверяем если нажимаем куда-то не на форму регистрации и входа
     {
-        document.body.style.backgroundColor = ""; // Меняем цвет заднего фона окна на стандарный
+        document.getElementById("modal-window").style.display = "none";
         formEnter.style.display = "none"; // Делаем не видимой форму входа
-        formRegister.style.display = "none"; // Делаем не видимой форму ругистрации
+        formRegister.style.display = "none"; // Делаем не видимой форму регистрации
     }
 });
 //==================================================
@@ -97,7 +97,7 @@ document.addEventListener('click', function(event)
 function validateFormForRegister()
 {
     var nameRegister = document.getElementById("nameRegister");
-    var emaiRegister = document.getElementById("emailRegister");
+    var emailRegister = document.getElementById("emailRegister");
     var passwordRegister = document.getElementById("passwordRegister");
     var isValid = true;
     var errorMessages = document.querySelectorAll(".error-message");
@@ -106,7 +106,7 @@ function validateFormForRegister()
         errorMessage.remove();
     });
     nameRegister.style.borderColor = "";
-    emaiRegister.style.borderColor = "";
+    emailRegister.style.borderColor = "";
     passwordRegister.style.borderColor = "";
 
     if (nameRegister.value === "")
@@ -116,10 +116,10 @@ function validateFormForRegister()
         isValid = false;
     }
 
-    if (emaiRegister.value === "")
+    if (emailRegister.value === "")
     {
-        emaiRegister.style.borderColor = "red";
-        emaiRegister.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
+        emailRegister.style.borderColor = "red";
+        emailRegister.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }
 
@@ -135,7 +135,7 @@ function validateFormForRegister()
 // Функция для проверки валидации формы входа
 function validateFormForEnter()
 {
-    var emaiInput = document.getElementById("emaiInput");
+    var emailInput = document.getElementById("emailInput");
     var passwordInput = document.getElementById("passwordInput");
     var isValid = true;
     var errorMessages = document.querySelectorAll(".error-message");
@@ -143,13 +143,13 @@ function validateFormForEnter()
     {
         errorMessage.remove();
     });
-    emaiInput.style.borderColor = "";
+    emailInput.style.borderColor = "";
     passwordInput.style.borderColor = "";
 
-    if (emaiInput.value === "")
+    if (emailInput.value === "")
     {
-        emaiInput.style.borderColor = "red";
-        emaiInput.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
+        emailInput.style.borderColor = "red";
+        emailInput.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }
 
@@ -222,7 +222,7 @@ function createCard(id, linkToPicture, wordsInTheTargetLanguage, wordsInNativeLa
 //--------------------------------------------------
 function getCards(path)
 {
-    // Полученние данных о карточках
+    // Получение данных о карточках
     let cardsContainer = document.getElementById("Cards"); // Получаем элемент с ID "Cards"
     let xhrCards = new XMLHttpRequest(); // Создаем новый объект XMLHttpRequest
     //--------------------------------------------------

@@ -2,22 +2,20 @@
     session_start();
     if($_SESSION['Name'] && $_SESSION['Email'])
     {
-        $servername = "localhost"; // имя сервера БД
-        $username = "root"; // имя пользователя БД
-        $password = ""; // пароль пользователя БД
-        $dbname = "trainer"; // имя БД
+        require 'linkDB.php';
+
         // Создаем подключение
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $Connect = mysqli_connect($serverName, $userName, $password, $dBName);
         // Проверяем подключение
-        if (!$conn)
+        if (!$Connect)
         {
             die("Ошибка подключения: " . mysqli_connect_error());
         }
         $idUser = $_SESSION['Id'];
         $idCardEngRus = $_POST['data'];
         $sql = "INSERT INTO userCardEngRus (idUser, idCardEngRus) VALUES ('$idUser', '$idCardEngRus')"; // SQL запрос
-        $result = mysqli_query($conn, $sql); // выполнение запроса
+        $result = mysqli_query($Connect, $sql); // выполнение запроса
         // Закрытие соединения
-        mysqli_close($conn);
+        mysqli_close($Connect);
     }
 ?>
