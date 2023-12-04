@@ -8,27 +8,28 @@
     <?php session_start() ?>
 </head>
 <body>
-    <header id="header">
-        <div id="header__logo">
-            Логотип
+    <header>
+        <div id="header__container">
+            <div id="header__logo">
+                Логотип
+            </div>
+            <div id="burger">
+
+            </div>
+            <div id="header">
+                <a href="#" id="header__cards" class="enteredTab">
+                    Карточки
+                </a>    
+                <a href="#" id="header__trains">
+                    Тренировка
+                </a>
+                <a href="#" id="header__loginRegistration">
+                    Вход / Регистрация
+                </a>
+                <a href="#" id="user" >
+                </a>
+            </div>
         </div>
-        <div id="header__search">
-            <input type="search" placeholder="Поиск...">
-            <button>
-                Искать
-            </button>
-        </div>
-        <a href="#" id="header__cards" class="enteredTab">
-            Карточки
-        </a>
-        <a href="#" id="header__trains">
-            Тренировка
-        </a>
-        <a href="#" id="header__loginRegistration">
-            Вход / Регистрация
-        </a>
-        <a href="#" id="user" >
-        </a>
     </header>
     <div id="modal-window">
         <div id="formRegister">
@@ -48,7 +49,7 @@
                     Пароль:
                 </label>
                 <input type="password" name="Password" id="passwordRegister">
-                <button type="submit">
+                <button type="submit" class="button__form">
                     Регистрация
                 </button>
             </form>
@@ -66,7 +67,7 @@
                     Пароль:
                 </label>
                 <input type="password" name="Password" id="passwordInput">
-                <button type="submit">
+                <button type="submit" class="button__form">
                     Вход
                 </button>
                 <a href="#" id="createAccount">
@@ -88,6 +89,14 @@
         <a href="#" id="exit">
             Выход
         </a>
+    </div>
+    <div id="search">
+        <div id="search-container">
+            <input type="search" placeholder="Поиск...">
+            <button>
+                Искать
+            </button>
+        </div>
     </div>
     <div id="Cards">
     </div>

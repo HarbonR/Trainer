@@ -1,6 +1,8 @@
 //==================================================
 // Функционал для переключения вкладок
 let header = document.getElementById("header");
+let burger = document.getElementById("burger");
+
 let tabs = header.getElementsByClassName("enteredTab");
 let header__cards = document.getElementById("header__cards");
 let header__trains = document.getElementById("header__trains");
@@ -42,6 +44,15 @@ user.onclick = function() // Выбираем вкладку пользоват�
     user__data.removeAttribute("style");
     user.className = "enteredTab";
     getCards("userCards.php");
+}
+//--------------------------------------------------
+// Для открытия и закрытия бургера
+burger.onclick = function()
+{
+    if ( header.style.top == "80px")
+        header.style.top = "-1000px";
+    else
+        header.style.top = "80px";
 }
 //==================================================
 // Функция для обработки кнопки выход
@@ -248,7 +259,7 @@ function getCards(path)
     //--------------------------------------------------
     // Стилизуем контейнер
     cardsContainer.style.maxWidth = "1200px";
-    cardsContainer.style.margin = "0 auto";
+    cardsContainer.style.margin = "20px auto 0 auto";
     cardsContainer.style.display = "flex";
     cardsContainer.style.justifyContent = "space-around";
     cardsContainer.style.flexWrap = "wrap";

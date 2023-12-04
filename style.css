@@ -1,18 +1,48 @@
 /*==================================================*/
+/* Общие настройки */
+body
+{
+    margin: 0;
+}
+/*==================================================*/
 a
 {
     text-decoration: none;
+    color: inherit;
 }
 /*--------------------------------------------------*/
 /*Стилизация для header*/
 header
 {
+    position: fixed;
     display: flex;
-    justify-content: space-around;
-    max-width: 1200px;
+    height: 80px;
+    width: 100%;
     border-bottom: 3px double black;
+    background-color: lightgreen;
+    font-size: 18pt;
+    top: 0;
+}
+#header__container
+{
+    display: flex;
+    width: 1200px;
     margin: 0 auto;
-    font-size: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+#burger
+{
+    display: none;
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+}
+#header
+{
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
 }
 #header__cards:hover
 {
@@ -36,7 +66,7 @@ h1
 {
     margin: 0;
 }
-button
+.button__form
 {
     margin-top: 10px;
 }
@@ -82,71 +112,15 @@ button
     background-color: lightgray;
     padding: 10px;
 }
-/*==================================================*/
-/*Стилизация для карточек*/
-.cards{
-    display: inline-block;
-    width: 250px;
-    height: 192px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
-    border-radius: 20px;
-}
-.cards .picture{
-    display: inline-block;
-    margin: 10% 5% 5% 30%;
-    width: 100px;
-    height: 100px;
-}
-.picture img{
-    border-radius: 20px;
-    width: 100%;
-}
-.buttons{
-    display: inline-block;
-    height: 100px;
-}
-.button-add{
-    border: 1px solid #40514E;
-    border-radius: 20%;
-    width: 33px;
-    height: 33px;
-    margin: 10px 0;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
-}
-.button-add:hover{
-    background-color: rgba(17, 153, 158, 50%);
-}
-.button-add img{
-    display: block;
-    margin: 20% auto;
-}
-.button-sound{
-    border: 1px solid #40514E;
-    width: 33px;
-    height: 33px;
-    border-radius: 50%;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
-}
-.button-sound:hover{
-    background-color: rgba(17, 153, 158, 50%);
-}
-.button-sound img{
-    display: block;
-    margin: 30% auto;
-}
-.word{
-    text-align: center;
-}
-.translate{
-    margin-top: 2%;
-    text-align: center;
-}
-/*==================================================*/
+/*--------------------------------------------------*/
+/* активная вкладка */
 .enteredTab
 {
     background-color: aqua;
     border-radius: 10px;
 }
+/*==================================================*/
+/* Личный кабинет */
 #user__data
 {
     display: flex;
@@ -154,5 +128,112 @@ button
     margin: 0 auto;
     justify-content: space-around;
     font-size: 16pt;
+    margin-top: 100px;
+}
+/*==================================================*/
+/* Поиск */
+#search
+{
+    display: flex;
+    margin-top: 100px;
+    width: 100%;
+}
+#search-container
+{
+    margin: 0 auto;
+}
+/*==================================================*/
+/*Стилизация для карточек*/
+.cards
+{
+    display: inline-block;
+    width: 250px;
+    height: 192px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+    border-radius: 20px;
+}
+.cards .picture
+{
+    display: inline-block;
+    margin: 10% 5% 5% 30%;
+    width: 100px;
+    height: 100px;
+}
+.picture img
+{
+    border-radius: 20px;
+    width: 100%;
+}
+.buttons
+{
+    display: inline-block;
+    height: 100px;
+}
+.button-add
+{
+    border: 1px solid #40514E;
+    border-radius: 20%;
+    width: 33px;
+    height: 33px;
+    margin: 10px 0;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+}
+.button-add:hover
+{
+    background-color: rgba(17, 153, 158, 50%);
+}
+.button-add img
+{
+    display: block;
+    margin: 20% auto;
+}
+.button-sound
+{
+    border: 1px solid #40514E;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+}
+.button-sound:hover
+{
+    background-color: rgba(17, 153, 158, 50%);
+}
+.button-sound img
+{
+    display: block;
+    margin: 30% auto;
+}
+.word
+{
+    text-align: center;
+}
+.translate
+{
+    margin-top: 2%;
+    text-align: center;
+}
+/*==================================================*/
+/* Медиа запрос для бургера */
+@media (max-width: 767px)
+{
+    #burger
+    {
+        display: block;
+    }
+    #header
+    {
+        position: fixed;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        top: -1000px;
+        background-color: lightblue;
+        transition: 0.5s;
+    }
+    #header > a
+    {
+        margin-top: 100px;
+    }
 }
 /*==================================================*/
