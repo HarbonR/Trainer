@@ -11,6 +11,7 @@ if(header__loginRegistration) // Проверка пуста ли перемен
     {
         document.getElementById("modal-window").style.display = "flex";
         formEnter.style.display = "flex"; // Делаем видимым форму входа
+        document.getElementById("header").style.top = "-1000px"; // Скрываем бургер
     }
 }
 //--------------------------------------------------
@@ -113,7 +114,7 @@ xhrData.onreadystatechange = function() // Устанавливаем функц
         if (xhrData.responseText)
         {
             let userData = JSON.parse(xhrData.responseText);
-            user.style.display = "";
+            user.removeAttribute("style");
             user.textContent = userData[0];
             header__loginRegistration.style.display = "none";
         }

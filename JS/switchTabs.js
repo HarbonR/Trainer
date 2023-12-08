@@ -24,6 +24,7 @@ header__cards.onclick = function() // Выбираем вкладку карто
     header__cards.classList.add("enteredTab");
     search.style.marginTop = "100px";
     getCards("PHP/cards.php");
+    header.style.top = "-1000px"; // Скрываем бургер
 };
 //--------------------------------------------------
 header__trains.onclick = function() // Выбираем вкладку тренировка
@@ -35,6 +36,7 @@ header__trains.onclick = function() // Выбираем вкладку трен�
     user__data.style.display = "none";
     header__trains.className = "enteredTab";
     search.style.marginTop = "100px";
+    header.style.top = "-1000px"; // Скрываем бургер
 }
 //--------------------------------------------------
 user.onclick = function() // Выбираем вкладку пользователь
@@ -47,14 +49,15 @@ user.onclick = function() // Выбираем вкладку пользоват�
     user.className = "enteredTab";
     search.style.marginTop = "20px";
     getCards("PHP/userCards.php");
+    header.style.top = "-1000px"; // Скрываем бургер
 }
 //--------------------------------------------------
 // Для открытия и закрытия бургера
 burger.onclick = function()
 {
-    if ( header.style.top == "80px")
+    if ( header.style.top == "83px")
         header.style.top = "-1000px";
     else
-        header.style.top = "80px";
+        header.style.top = "83px";
 }
 //==================================================

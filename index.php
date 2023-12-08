@@ -14,7 +14,7 @@
                 Логотип
             </div>
             <div id="burger">
-
+                <img src="Pictures/burger.svg" alt="">
             </div>
             <div id="header">
                 <a href="#" id="header__cards" class="enteredTab">
@@ -26,7 +26,7 @@
                 <a href="#" id="header__loginRegistration">
                     Вход / Регистрация
                 </a>
-                <a href="#" id="user" >
+                <a href="#" id="user" style="display: none;">
                 </a>
             </div>
         </div>
