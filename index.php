@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тренажер Английской лексики</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style/style.css">
     <?php session_start() ?>
 </head>
 <body>
@@ -36,7 +36,7 @@
             <h1>
                 Регистрация
             </h1>
-            <form action="registration.php" method="POST" onsubmit="return validateFormForRegister()">
+            <form action="PHP/registration.php" method="POST" onsubmit="return validateFormForRegister()">
                 <label for="Name">
                     Имя:
                 </label>
@@ -58,7 +58,7 @@
             <h1>
                 Вход
             </h1>
-            <form action="enter.php" method="POST" onsubmit="return validateFormForEnter()">
+            <form action="PHP/enter.php" method="POST" onsubmit="return validateFormForEnter()">
                 <label for="Email">
                     E-mail
                 </label>
@@ -100,6 +100,8 @@
     </div>
     <div id="Cards">
     </div>
-    <script src="javaScript.js"></script>
+    <script src="JS/switchTabs.js"></script>
+    <script src="JS/userAuthentication.js"></script>
+    <script src="JS/workingWithCards.js"></script>
 </body>
 </html>

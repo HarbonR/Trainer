@@ -39,7 +39,7 @@
                 if($booleanPassword) // Если пароль верный
                 {
                     $_SESSION['Email'] = $email; // Сохраняем е-мейл в сессии
-                    header('Location: index.php');
+                    header('Location: ../index.php');
                     exit; // Перенаправляем пользователя на другую страницу (строки закомментированы)
                 }
                 else
