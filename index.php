@@ -37,18 +37,18 @@
                 Регистрация
             </h1>
             <form action="PHP/registration.php" method="POST" onsubmit="return validateFormForRegister()">
-                <label for="Name">
+                <label for="userName">
                     Имя:
                 </label>
-                <input type="text" name="Name" id="nameRegister"> 
-                <label for="Email">
+                <input type="text" name="userName" id="nameRegister"> 
+                <label for="userEmail">
                     E-mail
                 </label>
-                <input type="email" name="Email" id="emailRegister">
-                <label for="Password">
+                <input type="email" name="userEmail" id="emailRegister">
+                <label for="userPassword">
                     Пароль:
                 </label>
-                <input type="password" name="Password" id="passwordRegister">
+                <input type="password" name="userPassword" id="passwordRegister">
                 <button type="submit" class="button__form">
                     Регистрация
                 </button>
@@ -59,14 +59,14 @@
                 Вход
             </h1>
             <form action="PHP/enter.php" method="POST" onsubmit="return validateFormForEnter()">
-                <label for="Email">
+                <label for="userEmail">
                     E-mail
                 </label>
-                <input type="email" name="Email" id="emailInput">
-                <label for="Password">
+                <input type="email" name="userEmail" id="emailInput">
+                <label for="userPassword">
                     Пароль:
                 </label>
-                <input type="password" name="Password" id="passwordInput">
+                <input type="password" name="userPassword" id="passwordInput">
                 <button type="submit" class="button__form">
                     Вход
                 </button>

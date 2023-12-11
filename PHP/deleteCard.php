@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if($_SESSION['Name'] && $_SESSION['Email'])
+    if($_SESSION['userEmail'])
     {
         require 'linkDB.php';
 
@@ -11,8 +11,8 @@
         {
             die("Ошибка подключения: " . mysqli_connect_error());
         }
-        $idUser = $_SESSION['Id'];
-        $idCardEngRus = $_POST['data'];
+        $userId = $_SESSION['userId'];
+        $idCardEngRus = $_POST['cardId'];
         $sql = "DELETE FROM userCardEngRus WHERE idCardEngRus = $idCardEngRus"; // SQL запрос
         $result = mysqli_query($Connect, $sql); // выполнение запроса
         // Закрытие соединения

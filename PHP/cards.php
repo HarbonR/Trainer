@@ -19,7 +19,7 @@
         while($row = mysqli_fetch_assoc($result)) // выводим данные из каждой строки
         {
             $data[] = array(
-                'id' => $row['id'],
+                'cardId' => $row['id'],
                 'linkToPicture' => $row['Picture'],
                 'wordsInTheTargetLanguage' => $row['Eng'],
                 'wordsInNativeLanguage' => $row['Rus']);

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if($_SESSION['Name'] && $_SESSION['Email'])
+    if($_SESSION['userEmail'])
     {
         require 'linkDB.php';
 
@@ -11,9 +11,9 @@
         {
             die("Ошибка подключения: " . mysqli_connect_error());
         }
-        $idUser = $_SESSION['Id'];
-        $idCardEngRus = $_POST['data'];
-        $sql = "INSERT INTO userCardEngRus (idUser, idCardEngRus) VALUES ('$idUser', '$idCardEngRus')"; // SQL запрос
+        $userId = $_SESSION['userId'];
+        $cardId = $_POST['cardId'];
+        $sql = "INSERT INTO userCardEngRus (IdUser, IdCardEngRus, Train) VALUES ('$userId', '$cardId', 0)"; // SQL запрос
         $result = mysqli_query($Connect, $sql); // выполнение запроса
         // Закрытие соединения
         mysqli_close($Connect);

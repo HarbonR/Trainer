@@ -19,7 +19,7 @@ header
     height: 80px;
     width: 100%;
     border-bottom: 3px double black;
-    background-color: rgba(189,189,189,0.5);
+    background-color: rgba(189,189,189,0.9);
     font-family: 'Gilroy', sans-serif;
     font-size: 18pt;
     top: 0;
@@ -91,6 +91,7 @@ h1
     flex-direction: column;
     align-items: center;
     background-color: lightgray;
+    border-radius: 10px;
     padding: 10px;
 }
 /*--------------------------------------------------*/
@@ -105,6 +106,7 @@ h1
     flex-direction: column;
     align-items: center;
     background-color: lightgray;
+    border-radius: 10px;
     padding: 10px;
 }
 /*--------------------------------------------------*/
@@ -119,6 +121,7 @@ h1
 #user__data
 {
     display: flex;
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
     justify-content: space-around;
@@ -225,15 +228,29 @@ h1
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
     width: 60px;
     height: 50px;
     border-radius: 15px;
 }
-.buttons > div:active
+.enterButton
 {
-    background-color: #3C3C3C;
-    border-color: white;
+    background-color: white;
+    border-color: black;
+}
+.enterButton:active
+{
+    background-color: gray;
+    border: 1px solid white;
+}
+.enteredButton
+{
+    background-color: gray;
+    border: 1px solid white;
+}
+.enteredButton:active
+{
+    background-color: white;
+    border: 1px solid black;
 }
 .gradient
 {

@@ -23,7 +23,7 @@ header__cards.onclick = function() // Выбираем вкладку карто
     user__data.style.display = "none";
     header__cards.classList.add("enteredTab");
     search.style.marginTop = "100px";
-    getCards("PHP/cards.php");
+    getCards("../PHP/cards.php", "Card");
     header.style.top = "-1000px"; // Скрываем бургер
 };
 //--------------------------------------------------
@@ -36,6 +36,7 @@ header__trains.onclick = function() // Выбираем вкладку трен�
     user__data.style.display = "none";
     header__trains.className = "enteredTab";
     search.style.marginTop = "100px";
+    getCards("../PHP/trainCards.php", "Train");
     header.style.top = "-1000px"; // Скрываем бургер
 }
 //--------------------------------------------------
@@ -48,7 +49,7 @@ user.onclick = function() // Выбираем вкладку пользоват�
     user__data.removeAttribute("style");
     user.className = "enteredTab";
     search.style.marginTop = "20px";
-    getCards("PHP/userCards.php", "User");
+    getCards("../PHP/userCards.php", "User");
     header.style.top = "-1000px"; // Скрываем бургер
 }
 //--------------------------------------------------

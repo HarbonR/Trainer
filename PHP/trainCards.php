@@ -17,13 +17,13 @@
             ,idCardEngRus
             ,Eng
             ,Rus
-            ,Train
+            ,train
         FROM
             userCardEngRus
         JOIN user ON userCardEngRus.idUser = user.Id
         JOIN cardEngRus ON userCardEngRus.idCardEngRus = cardEngRus.id
         WHERE
-            user.Id = '$userId'"; // SQL запрос
+            user.Id = '$userId' AND train = 1"; // SQL запрос
     $result = mysqli_query($Connect, $sql); // выполнение запроса
     $data = array(); // Создаем пустой массив для хранения данных
 
@@ -36,7 +36,7 @@
                 'linkToPicture' => $row['Picture'],
                 'wordsInTheTargetLanguage' => $row['Eng'],
                 'wordsInNativeLanguage' => $row['Rus'],
-                'train' => $row['Train']);
+                'train' => $row['train']);
         }
     }
     $jsonData = json_encode($data); // Преобразуем массив в формат JSON

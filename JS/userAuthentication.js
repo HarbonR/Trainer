@@ -15,7 +15,7 @@ if(header__loginRegistration) // Проверка пуста ли перемен
     }
 }
 //--------------------------------------------------
-// Добавляем слушателя на документ
+// Добавляем слушателя на документ для скрытия форм вход / регистрация
 document.addEventListener('click', function(event)
 {
     if (!formEnter.contains(event.target) && event.target !== header__loginRegistration 
@@ -120,7 +120,7 @@ xhrData.onreadystatechange = function() // Устанавливаем функц
         }
     }
 };
-xhrData.open("POST", "PHP/registrationDate.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
+xhrData.open("POST", "../PHP/registrationDate.php"); // Открываем соединение с сервером с помощью метода "POST" и адреса "cards.php"
 xhrData.send(); // Отправляем запрос на сервер
 //==================================================
 // Функция для обработки кнопки выход
@@ -132,7 +132,7 @@ exit.onclick = function()
     user__data.style.display = "none";
     header__cards.click();
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'PHP/exit.php', false); // Установлен параметр async в false
+    xhr.open('GET', '../PHP/exit.php', false); // Установлен параметр async в false
     xhr.send();
 }
 //==================================================
