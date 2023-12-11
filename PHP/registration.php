@@ -21,7 +21,7 @@
         $userName = mysqli_real_escape_string($Connect, $userName); // SQL-инъекции. Экранируем специальные символы в строке
         $userEmail  = mysqli_real_escape_string($Connect, $userEmail);  // SQL-инъекции. Экранируем специальные символы в строке
         $userPassword  = mysqli_real_escape_string($Connect, $userPassword);  // SQL-инъекции. Экранируем специальные символы в строке
-        $userPassword = password_hash($password, PASSWORD_DEFAULT); // Хэшируем пароль
+        $userPassword = password_hash($userPassword, PASSWORD_DEFAULT); // Хэшируем пароль
 
         // Подготовка и выполнение SQL-запроса
         $sql = "INSERT INTO user (Name, Email, Password) VALUES ('$userName', '$userEmail', '$userPassword')";

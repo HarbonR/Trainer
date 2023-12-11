@@ -1,6 +1,6 @@
 <?php
     session_start();  // Инициализация сессии для сохранения данных между запросами
-    if($_SERVER['REQUEST_METHOD'] === 'POST') // Проверка, что HTTP-запрос - это POST
+    if($_SERVER['REQUEST_METHOD'] == 'POST') // Проверка, что HTTP-запрос - это POST
     {
         require 'linkDB.php'; // Шаблон данных для подключения к БД
 
@@ -27,7 +27,7 @@
                 if($row['Email'] == $userEmail) // Проверка на совпадение е-мейла
                 {
                     $booleanUserEmail = true; // е-мейл найден
-                    if(password_verify($booleanUserPassword, $row['Password'])) // Проверка хеша пароля
+                    if(password_verify($userPassword, $row['Password'])) // Проверка хеша пароля
                     {
                         $booleanUserPassword = true; // Пароль верифицирован
                         $_SESSION['userId'] = $row['Id']; // Сохраняем id пользователя в сессии

@@ -44,7 +44,7 @@ header
 #header
 {
     display: flex;
-    width: 60%;
+    width: 70%;
     justify-content: space-around;
 }
 #header > a
