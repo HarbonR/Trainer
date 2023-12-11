@@ -48,7 +48,7 @@ user.onclick = function() // Выбираем вкладку пользоват�
     user__data.removeAttribute("style");
     user.className = "enteredTab";
     search.style.marginTop = "20px";
-    getCards("PHP/userCards.php");
+    getCards("PHP/userCards.php", "User");
     header.style.top = "-1000px"; // Скрываем бургер
 }
 //--------------------------------------------------

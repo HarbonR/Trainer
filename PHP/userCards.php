@@ -13,9 +13,10 @@
     $name = $_SESSION['Name'];
     $sql = "
         SELECT
-            cardEngRus.Picture
-            ,cardEngRus.Eng
-            ,cardEngRus.Rus
+            Picture
+            ,idCardEngRus
+            ,Eng
+            ,Rus
         FROM
             userCardEngRus
         JOIN user ON userCardEngRus.idUser = user.Id
@@ -30,6 +31,7 @@
         while($row = mysqli_fetch_assoc($result)) // выводим данные из каждой строки
         {
             $data[] = array(
+                'id' => $row['idCardEngRus'],
                 'linkToPicture' => $row['Picture'],
                 'wordsInTheTargetLanguage' => $row['Eng'],
                 'wordsInNativeLanguage' => $row['Rus']);
