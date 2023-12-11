@@ -140,6 +140,15 @@ function createCardForUser(id, linkToPicture, wordsInTheTargetLanguage, wordsInN
     let buttonDelete = document.createElement('div');
     buttonDelete.className = "button-delete";
     buttonDelete.textContent = 'X';
+    buttonDelete.onclick = function()
+    {
+        let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
+        xhr.open("POST", "PHP/deleteCard.php", true); 
+        // Отправляем запрос на сервер
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
+        xhr.send("data=" + encodeURIComponent(id));
+        user.click();
+    }
     buttons.appendChild(buttonDelete);
 
     // Добавление div с кнопками в основной контейнер карточки
