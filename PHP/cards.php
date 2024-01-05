@@ -1,6 +1,6 @@
 <?php
+    session_start();
     require 'linkDB.php';
-
     // Создаем подключение
     $Connect = mysqli_connect($serverName, $userName, $password, $dBName);
 
@@ -10,7 +10,17 @@
         die("Ошибка подключения: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT id, Picture, Eng, Rus FROM cardEngRus"; // SQL запрос
+    $userId = $_SESSION['userId'];
+    $sql = "
+        SELECT
+            card.Id
+            ,card.Picture
+            ,card.Eng
+            ,card.Rus
+            ,CASE WHEN user.IdUser IS NOT NULL THEN 1 ELSE 0 END AS added
+        FROM
+            cardEngRus AS card
+        LEFT JOIN userCardEngRus user ON card.Id = user.IdCardEngRus AND user.IdUser = '$userId'"; // SQL запрос
     $result = mysqli_query($Connect, $sql); // выполнение запроса
     $data = array(); // Создаем пустой массив для хранения данных
 
@@ -19,10 +29,11 @@
         while($row = mysqli_fetch_assoc($result)) // выводим данные из каждой строки
         {
             $data[] = array(
-                'cardId' => $row['id'],
+                'cardId' => $row['Id'],
                 'linkToPicture' => $row['Picture'],
                 'wordsInTheTargetLanguage' => $row['Eng'],
-                'wordsInNativeLanguage' => $row['Rus']);
+                'wordsInNativeLanguage' => $row['Rus'],
+                'added' => $row['added']);
         }
     }
     $jsonData = json_encode($data); // Преобразуем массив в формат JSON

@@ -37,15 +37,15 @@
                 Регистрация
             </h1>
             <form action="PHP/registration.php" method="POST" onsubmit="return validateFormForRegister()">
-                <label for="userName">
+                <label for="nameRegister">
                     Имя:
                 </label>
                 <input type="text" name="userName" id="nameRegister"> 
-                <label for="userEmail">
+                <label for="emailRegister">
                     E-mail
                 </label>
                 <input type="email" name="userEmail" id="emailRegister">
-                <label for="userPassword">
+                <label for="passwordRegister">
                     Пароль:
                 </label>
                 <input type="password" name="userPassword" id="passwordRegister">
@@ -59,11 +59,11 @@
                 Вход
             </h1>
             <form action="PHP/enter.php" method="POST" onsubmit="return validateFormForEnter()">
-                <label for="userEmail">
+                <label for="emailInput">
                     E-mail
                 </label>
                 <input type="email" name="userEmail" id="emailInput">
-                <label for="userPassword">
+                <label for="passwordInput">
                     Пароль:
                 </label>
                 <input type="password" name="userPassword" id="passwordInput">
@@ -74,6 +74,19 @@
                     Создать аккаунт
                 </a>
             </form>
+        </div>
+    </div>
+    <div id="train__data" style="display: none;">
+        <a href="#" id="dailyWorkout">
+            Ежедневная тренировка
+        </a>
+        <div class="self__training">
+            <a href="#" id="begin">
+                Начать
+            </a>
+            <a href="#" id="settings">
+                Настройки
+            </a>
         </div>
     </div>
     <div id="user__data" style="display: none;">

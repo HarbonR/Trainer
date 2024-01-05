@@ -7,6 +7,7 @@ let header__cards = document.getElementById("header__cards");
 let header__trains = document.getElementById("header__trains");
 let user = document.getElementById("user");
 let user__data = document.getElementById("user__data");
+let train__data = document.getElementById("train__data");
 let search = document.getElementById("search");
 //--------------------------------------------------
 window.addEventListener('load', function()
@@ -21,6 +22,7 @@ header__cards.onclick = function() // Выбираем вкладку карто
         tabs[i].classList.remove("enteredTab");
     }
     user__data.style.display = "none";
+    train__data.style.display = "none";
     header__cards.classList.add("enteredTab");
     search.style.marginTop = "100px";
     getCards("../PHP/cards.php", "Card");
@@ -34,8 +36,9 @@ header__trains.onclick = function() // Выбираем вкладку трен�
         tabs[i].classList.remove("enteredTab");
     }
     user__data.style.display = "none";
+    train__data.removeAttribute("style");
     header__trains.className = "enteredTab";
-    search.style.marginTop = "100px";
+    search.style.marginTop = "20px";
     getCards("../PHP/trainCards.php", "Train");
     header.style.top = "-1000px"; // Скрываем бургер
 }
@@ -47,6 +50,7 @@ user.onclick = function() // Выбираем вкладку пользоват�
         tabs[i].classList.remove("enteredTab");
     }
     user__data.removeAttribute("style");
+    train__data.style.display = "none";
     user.className = "enteredTab";
     search.style.marginTop = "20px";
     getCards("../PHP/userCards.php", "User");

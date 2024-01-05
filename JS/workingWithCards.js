@@ -1,12 +1,27 @@
 //==================================================
+// Функция для смены класса выбрать, выбранная кнопка
+function switchButtonClass(buttonClass)
+{
+    if (buttonClass.classList[1] == "enterButton")
+    {
+        buttonClass.classList.add("enteredButton");
+        buttonClass.classList.remove("enterButton");
+    }
+    else
+    {
+        buttonClass.classList.add("enterButton");
+        buttonClass.classList.remove("enteredButton");
+    }
+}
+//--------------------------------------------------
 // Создаем функцию для создания карточки
-function createCard(cardId, linkToPicture, wordsInTheTargetLanguage, wordsInNativeLanguage)
+function createCard(cardId, linkToPicture, wordsInTheTargetLanguage, wordsInNativeLanguage, added)
 {
     // Создание основного контейнера карточки
     let card = document.createElement("div");
     card.className = "card";
     card.style.backgroundImage = `url("${linkToPicture}")`;
-    card.id = "card: " + cardId;
+    card.id = cardId;
 
     // Создание div для слова
     let wordDiv = document.createElement('div');
@@ -30,13 +45,36 @@ function createCard(cardId, linkToPicture, wordsInTheTargetLanguage, wordsInNati
     buttonAdd.classList.add("enterButton");
     buttonAdd.textContent = '+';
     buttonAdd.style.width = "100px"
+    if (added == 1)
+    {
+        buttonAdd.classList.add("enteredButton");
+        buttonAdd.classList.remove("enterButton");
+    }
+    else
+    {
+        buttonAdd.classList.add("enterButton");
+        buttonAdd.classList.remove("enteredButton");
+    }
     buttonAdd.onclick = function()
     {
-        let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
-        xhr.open("POST", "../PHP/addCard.php", true);
-        // Отправляем запрос на сервер
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
-        xhr.send("cardId=" + encodeURIComponent(cardId));
+        if(buttonAdd.classList[1] == "enterButton") // Если карточка не добавлена, добавить
+        {
+            let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
+            xhr.open("POST", "../PHP/addCard.php", true);
+            // Отправляем запрос на сервер
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
+            xhr.send("cardId=" + encodeURIComponent(cardId));
+        }
+        else // Иначе удалить
+        {
+            let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
+            xhr.open("POST", "../PHP/deleteCard.php", true); 
+            // Отправляем запрос на сервер
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
+            xhr.send("cardId=" + encodeURIComponent(cardId));
+        }
+        switchButtonClass(buttonAdd);
+        
     }
     buttons.appendChild(buttonAdd);
 
@@ -69,7 +107,7 @@ function createCardForUser(cardId, linkToPicture, wordsInTheTargetLanguage, word
     let card = document.createElement("div");
     card.className = "card";
     card.style.backgroundImage = `url("${linkToPicture}")`;
-    card.id = "card: " + cardId;
+    card.id = cardId;
 
     // Создание основного контейнера уровней
     let level = document.createElement('div');
@@ -132,12 +170,12 @@ function createCardForUser(cardId, linkToPicture, wordsInTheTargetLanguage, word
     }
     buttonTrain.onclick = function()
     {
+        switchButtonClass(buttonTrain);
         let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
         xhr.open("POST", "../PHP/trainCard.php", true); 
         // Отправляем запрос на сервер
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
         xhr.send("cardId=" + encodeURIComponent(cardId));
-        getCards("../PHP/userCards.php", "User");
     }
     buttons.appendChild(buttonTrain);
 
@@ -157,12 +195,12 @@ function createCardForUser(cardId, linkToPicture, wordsInTheTargetLanguage, word
     buttonDelete.textContent = 'X';
     buttonDelete.onclick = function()
     {
+        document.getElementById(cardId).remove();
         let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
         xhr.open("POST", "../PHP/deleteCard.php", true); 
         // Отправляем запрос на сервер
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
         xhr.send("cardId=" + encodeURIComponent(cardId));
-        getCards("../PHP/userCards.php", "User");
     }
     buttons.appendChild(buttonDelete);
 
@@ -185,7 +223,7 @@ function createCardForTrain(cardId, linkToPicture, wordsInTheTargetLanguage, wor
     let card = document.createElement("div");
     card.className = "card";
     card.style.backgroundImage = `url("${linkToPicture}")`;
-    card.id = "card: " + cardId;
+    card.id = cardId;
 
     // Создание основного контейнера уровней
     let level = document.createElement('div');
@@ -250,12 +288,12 @@ function createCardForTrain(cardId, linkToPicture, wordsInTheTargetLanguage, wor
     }
     buttonTrain.onclick = function()
     {
+        switchButtonClass(buttonTrain);
         let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
         xhr.open("POST", "../PHP/trainCard.php", true); 
         // Отправляем запрос на сервер
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // Устанавливаем заголовок Content-Type
         xhr.send("cardId=" + encodeURIComponent(cardId));
-        getCards("../PHP/trainCards.php", "Train");
     }
     buttons.appendChild(buttonTrain);
 
@@ -302,7 +340,7 @@ function getCards(path, type)
                 for (let i = 0; i < jsonData.length; i++)
                 {
                     let cardData = jsonData[i];
-                    let card = createCard(cardData.cardId, cardData.linkToPicture, cardData.wordsInTheTargetLanguage, cardData.wordsInNativeLanguage);
+                    let card = createCard(cardData.cardId, cardData.linkToPicture, cardData.wordsInTheTargetLanguage, cardData.wordsInNativeLanguage, cardData.added);
                     cardsContainer.appendChild(card);
                 }
             }
