@@ -371,7 +371,7 @@ function getCards(path, type)
     xhrCards.send(); // Отправляем запрос на сервер
     //--------------------------------------------------
     // Стилизуем контейнер
-    cardsContainer.style.maxWidth = "1200px";
+    cardsContainer.style.maxWidth = "85%";
     cardsContainer.style.margin = "20px auto";
     cardsContainer.style.display = "flex";
     cardsContainer.style.justifyContent = "space-around";

@@ -8,6 +8,9 @@
     <?php session_start() ?>
 </head>
 <body>
+    <div class="body__container">
+
+    </div>
     <header>
         <div id="header__container">
             <div id="header__logo">
@@ -106,7 +109,7 @@
     <div id="search">
         <div id="search-container">
             <input type="search" placeholder="Поиск...">
-            <button>
+            <button id="searchButton">
                 Искать
             </button>
         </div>

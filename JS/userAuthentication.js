@@ -54,21 +54,21 @@ function validateFormForRegister()
 
     if (nameRegister.value === "")
     {
-        nameRegister.style.borderColor = "red";
+        nameRegister.style.borderColor = "#8A666A";
         nameRegister.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }
 
     if (emailRegister.value === "")
     {
-        emailRegister.style.borderColor = "red";
+        emailRegister.style.borderColor = "#8A666A";
         emailRegister.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }
 
     if (passwordRegister.value === "")
     {
-        passwordRegister.style.borderColor = "red";
+        passwordRegister.style.borderColor = "#8A666A";
         passwordRegister.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }
@@ -91,14 +91,14 @@ function validateFormForEnter()
 
     if (emailInput.value === "")
     {
-        emailInput.style.borderColor = "red";
+        emailInput.style.borderColor = "#8A666A";
         emailInput.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }
 
     if (passwordInput.value === "")
     {
-        passwordInput.style.borderColor = "red";
+        passwordInput.style.borderColor = "#8A666A";
         passwordInput.insertAdjacentHTML("afterend", "<p class='error-message' style='margin: 0'>Поле не заполнено</p>");
         isValid = false;
     }

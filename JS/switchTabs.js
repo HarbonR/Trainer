@@ -24,7 +24,7 @@ header__cards.onclick = function() // Выбираем вкладку карто
     user__data.style.display = "none";
     train__data.style.display = "none";
     header__cards.classList.add("enteredTab");
-    search.style.marginTop = "100px";
+    search.style.marginTop = "130px";
     getCards("../PHP/cards.php", "Card");
     header.style.top = "-1000px"; // Скрываем бургер
 };
@@ -60,9 +60,9 @@ user.onclick = function() // Выбираем вкладку пользоват�
 // Для открытия и закрытия бургера
 burger.onclick = function()
 {
-    if ( header.style.top == "83px")
+    if (header.style.top == "111px")
         header.style.top = "-1000px";
     else
-        header.style.top = "83px";
+        header.style.top = "111px";
 }
 //==================================================
