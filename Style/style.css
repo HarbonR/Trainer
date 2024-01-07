@@ -265,30 +265,27 @@ h1
 {
     width: 4px;
     height: 15px;
-    border: 1px solid black;
     border-radius: 2px;
-    background-color: white;
+    background-color: #F0ECE3;
 }
 .level-two
 {
     width: 4px;
     height: 20px;
-    border: 1px solid black;
     border-radius: 2px;
-    background-color: white;
+    background-color: #F0ECE3;
     margin: 0 3px 0 3px;
 }
 .level-three
 {
     width: 4px;
     height: 25px;
-    border: 1px solid black;
     border-radius: 2px;
-    background-color: white;
+    background-color: #F0ECE3;
 }
 .word
 {
-    color: white;
+    color: #F0ECE3;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30pt;
     margin-left: 10%;
@@ -296,7 +293,7 @@ h1
 }
 .translate
 {
-    color: white;
+    color: #F0ECE3;
     font-size: 15pt;
     margin: 0 0 10% 10%;
     z-index: 1;
@@ -325,37 +322,30 @@ h1
 .enterButton:active
 {
     background-color: #718A66;
-    border: 1px solid #F0ECE3;
 }
 .enteredButton
 {
     background-color: #718A66;
-    border: 1px solid #F0ECE3;
 }
 .enteredButton:active
 {
     background-color: #F0ECE3;
-    border: 1px solid black;
 }
 .button-sound
 {
     background-color: #F0ECE3;
-    border-color: black;
 }
 .button-sound:active
 {
     background-color: #667D8A;
-    border: 1px solid #F0ECE3;
 }
 .button-delete
 {
     background-color: #F0ECE3;
-    border-color: black;
 }
 .button-delete:active
 {
     background-color: #8A666A;
-    border: 1px solid #F0ECE3;
 }
 .gradient
 {
