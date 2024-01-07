@@ -2,7 +2,7 @@
 // Функция для смены класса выбрать, выбранная кнопка
 function switchButtonClass(buttonClass)
 {
-    if (buttonClass.classList[1] == "enterButton")
+    if (buttonClass.classList.contains("enterButton"))
     {
         buttonClass.classList.add("enteredButton");
         buttonClass.classList.remove("enterButton");

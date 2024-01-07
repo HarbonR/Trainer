@@ -37,7 +37,7 @@
             </div>
         </div>
     </header>
-    <div id="modal-window">
+    <div id="modal-window__Enter-Register">
         <div id="formRegister">
             <h1>
                 Регистрация
@@ -46,15 +46,15 @@
                 <label for="nameRegister">
                     Имя:
                 </label>
-                <input type="text" name="userName" id="nameRegister"> 
+                <input type="text" name="userName" id="nameRegister" autocomplete="off"> 
                 <label for="emailRegister">
                     E-mail
                 </label>
-                <input type="email" name="userEmail" id="emailRegister">
+                <input type="email" name="userEmail" id="emailRegister" autocomplete="off">
                 <label for="passwordRegister">
                     Пароль:
                 </label>
-                <input type="password" name="userPassword" id="passwordRegister">
+                <input type="password" name="userPassword" id="passwordRegister" autocomplete="off">
                 <button type="submit" class="button__form">
                     Регистрация
                 </button>
@@ -68,11 +68,11 @@
                 <label for="emailInput">
                     E-mail
                 </label>
-                <input type="email" name="userEmail" id="emailInput">
+                <input type="email" name="userEmail" id="emailInput" autocomplete="off">
                 <label for="passwordInput">
                     Пароль:
                 </label>
-                <input type="password" name="userPassword" id="passwordInput">
+                <input type="password" name="userPassword" id="passwordInput" autocomplete="off">
                 <button type="submit" class="button__form">
                     Вход
                 </button>
@@ -93,6 +93,13 @@
             Настройки
         </a>
     </div>
+    <div id="modal-window__settings">
+        <div class="modal-window__settings__container">
+            <div id="settings__container">
+                
+            </div>
+        </div>
+    </div>
     <div id="user__data" style="display: none;">
         <a href="#" id="myDictionary" class="enteredTab">
             Мой словарь
@@ -109,7 +116,7 @@
     </div>
     <div id="search">
         <div id="search-container">
-            <input type="search" placeholder="Поиск...">
+            <input type="search" name="search" id="input__search" placeholder="Поиск..." autocomplete="off">
             <button id="searchButton">
                 Искать
             </button>

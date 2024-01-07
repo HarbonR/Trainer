@@ -9,7 +9,7 @@ if(header__loginRegistration) // Проверка пуста ли перемен
 {
     header__loginRegistration.onclick = function()
     {
-        document.getElementById("modal-window").style.display = "flex";
+        document.getElementById("modal-window__Enter-Register").style.display = "flex";
         formEnter.style.display = "flex"; // Делаем видимым форму входа
         document.getElementById("header").style.top = "-1000px"; // Скрываем бургер
     }
@@ -18,12 +18,19 @@ if(header__loginRegistration) // Проверка пуста ли перемен
 // Добавляем слушателя на документ для скрытия форм вход / регистрация
 document.addEventListener('click', function(event)
 {
+    let settingsContainer = document.getElementById("settings__container"); // Получаем элемент с ID "settings__container"
+    let settings = document.getElementById("settings");
     if (!formEnter.contains(event.target) && event.target !== header__loginRegistration 
     && !formRegister.contains(event.target) && event.target !== header__loginRegistration) // Проверяем если нажимаем куда-то не на форму регистрации и входа
     {
-        document.getElementById("modal-window").style.display = "none";
+        document.getElementById("modal-window__Enter-Register").style.display = "none";
         formEnter.style.display = "none"; // Делаем не видимой форму входа
         formRegister.style.display = "none"; // Делаем не видимой форму регистрации
+    }
+    if (!settingsContainer.contains(event.target) && event.target !== settings)
+    {
+        document.getElementById("modal-window__settings").style.display = "none";
+        settings.classList.remove("enteredTab");
     }
 });
 //--------------------------------------------------
@@ -132,7 +139,7 @@ exit.onclick = function()
     user__data.style.display = "none";
     header__cards.click();
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', '../PHP/exit.php', false); // Установлен параметр async в false
+    xhr.open('GET', '../PHP/exit.php', true); // Установлен параметр async в true
     xhr.send();
 }
 //==================================================
