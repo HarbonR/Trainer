@@ -81,7 +81,6 @@ function createCard(cardId, linkToPicture, wordsInTheTargetLanguage, wordsInNati
     // Создание div для кнопки "Звук"
     let buttonSound = document.createElement('div');
     buttonSound.className = "button-sound";
-    buttonSound.classList.add("enterButton");
     buttonSound.style.width = "100px"
     let soundImage = document.createElement('img');
     soundImage.src = "Pictures/button-sound.svg";
@@ -182,7 +181,6 @@ function createCardForUser(cardId, linkToPicture, wordsInTheTargetLanguage, word
     // Создание div для кнопки "Звук"
     let buttonSound = document.createElement('div');
     buttonSound.className = "button-sound";
-    buttonSound.classList.add("enterButton");
     let soundImage = document.createElement('img');
     soundImage.src = "Pictures/button-sound.svg";
     buttonSound.appendChild(soundImage);
@@ -191,7 +189,6 @@ function createCardForUser(cardId, linkToPicture, wordsInTheTargetLanguage, word
     // Создание div для кнопки "Удалить"
     let buttonDelete = document.createElement('div');
     buttonDelete.className = "button-delete";
-    buttonDelete.classList.add("enterButton");
     buttonDelete.textContent = 'X';
     buttonDelete.onclick = function()
     {
@@ -288,7 +285,7 @@ function createCardForTrain(cardId, linkToPicture, wordsInTheTargetLanguage, wor
     }
     buttonTrain.onclick = function()
     {
-        switchButtonClass(buttonTrain);
+        document.getElementById(cardId).remove();
         let xhr = new XMLHttpRequest(); // Создаем новый объект XMLHTTPrequest
         xhr.open("POST", "../PHP/trainCard.php", true); 
         // Отправляем запрос на сервер
@@ -300,7 +297,6 @@ function createCardForTrain(cardId, linkToPicture, wordsInTheTargetLanguage, wor
     // Создание div для кнопки "Звук"
     let buttonSound = document.createElement('div');
     buttonSound.className = "button-sound";
-    buttonSound.classList.add("enterButton");
     buttonSound.style.width = "100px"
     let soundImage = document.createElement('img');
     soundImage.src = "Pictures/button-sound.svg";

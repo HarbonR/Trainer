@@ -21,12 +21,21 @@ button
     width: 90%;
     height: 100%;
     background-color: #DFD3C3;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
     top: 0;
     left: 50%;
     transform: translate(-50%);
     z-index: -1;
+}
+.body__top
+{
+    position: fixed;
+    width: 90%;
+    height: 110px;
+    background-color: #DFD3C3;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
 }
 /*==================================================*/
 a
@@ -51,7 +60,7 @@ header
 {
     display: flex;
     width: 85%;
-    background-color: rgba(199,177,152,0.9);
+    background-color: #C7B198;
     border-radius: 20px;
     margin: 0 auto;
     align-items: center;
@@ -135,6 +144,7 @@ h1
     display: none;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     background-color: #DFD3C3;
     border-radius: 20px;
     padding: 0px 20px 10px 20px;
@@ -168,7 +178,7 @@ h1
     width: 85%;
     margin: 0 auto;
     justify-content: space-around;
-    font-size: 18pt;
+    font-size: 17pt;
     font-family: 'Gilroy', sans-serif;
     margin-top: 130px;
 }
@@ -182,37 +192,18 @@ h1
 #train__data
 {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 130px;
-    font-size: 18pt;
-    font-family: 'Gilroy', sans-serif;
-}
-.self__training
-{
-    display: flex;
-    width: 100%;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: 0 auto;
     justify-content: space-around;
-    padding: 10px;
-    border-radius: 10px;
+    font-size: 17pt;
+    font-family: 'Gilroy', sans-serif;
+    margin-top: 130px;
 }
-#dailyWorkout
+#train__data > a
 {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #C7B198;
-}
-#begin
-{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #C7B198;
-}
-#settings
-{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #C7B198;
+    padding: 5px 10px;
+    margin: 0px 10px;
 }
 /*==================================================*/
 /* Поиск */
@@ -328,23 +319,43 @@ h1
 }
 .enterButton
 {
-    background-color: white;
+    background-color: #F0ECE3;
     border-color: black;
 }
 .enterButton:active
 {
-    background-color: gray;
-    border: 1px solid white;
+    background-color: #718A66;
+    border: 1px solid #F0ECE3;
 }
 .enteredButton
 {
-    background-color: gray;
-    border: 1px solid white;
+    background-color: #718A66;
+    border: 1px solid #F0ECE3;
 }
 .enteredButton:active
 {
-    background-color: white;
+    background-color: #F0ECE3;
     border: 1px solid black;
+}
+.button-sound
+{
+    background-color: #F0ECE3;
+    border-color: black;
+}
+.button-sound:active
+{
+    background-color: #667D8A;
+    border: 1px solid #F0ECE3;
+}
+.button-delete
+{
+    background-color: #F0ECE3;
+    border-color: black;
+}
+.button-delete:active
+{
+    background-color: #8A666A;
+    border: 1px solid #F0ECE3;
 }
 .gradient
 {

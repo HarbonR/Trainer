@@ -9,7 +9,10 @@
 </head>
 <body>
     <div class="body__container">
-
+        
+    </div>
+    <div class="body__top">
+            
     </div>
     <header>
         <div id="header__container">
@@ -83,14 +86,12 @@
         <a href="#" id="dailyWorkout">
             Ежедневная тренировка
         </a>
-        <div class="self__training">
-            <a href="#" id="begin">
-                Начать
-            </a>
-            <a href="#" id="settings">
-                Настройки
-            </a>
-        </div>
+        <a href="#" id="begin">
+            Начать
+        </a>
+        <a href="#" id="settings">
+            Настройки
+        </a>
     </div>
     <div id="user__data" style="display: none;">
         <a href="#" id="myDictionary" class="enteredTab">
